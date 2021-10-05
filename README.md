@@ -1,2 +1,2 @@
 # otus-cpp-basics
-//Учебный репозиторий для Otus С++ Basic. Test 02 for branch test1.
+//Учебный репозиторий для Otus С++ Basic. Test 03 for branch test2.
