@@ -1,0 +1,10 @@
+^C:\USERS\VOURD\SOURCE\REPOS\HELLO\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/vourd/source/repos/Hello -BC:/Users/vourd/source/repos/Hello/build --check-stamp-file C:/Users/vourd/source/repos/Hello/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

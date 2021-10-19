@@ -1,0 +1,10 @@
+^C:\USERS\VOURD\SOURCE\REPOS\HELLO\BUILD\CMAKEFILES\18882421E92F114C105537A53CB5C5B7\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/vourd/source/repos/Hello -BC:/Users/vourd/source/repos/Hello/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/vourd/source/repos/Hello/build/Hello.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
