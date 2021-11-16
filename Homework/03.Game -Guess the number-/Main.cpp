@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
         if (std::string(argv[i]) == "-table")
         {
             readFromFile();
-            exit(0);
+            return(0);
         }
     }
  

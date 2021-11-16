@@ -6,27 +6,23 @@
 
 void UserRangePrintTextQue() //Спрашиваем хочет ли пользователь поменят диапозон ? 
 {
-    std::cout << "Do you want to change the range of numbers with which you will play ?" <<
+    std::cout << "Do you want to change the range of numbers with which you will play? " <<
         "By default, it is set from 0 to 99 inclusive. If yes then enter Y, if no then enter N. ?";
 }
 
-bool getUserSolution() // спрашиваем хочет ли пользователь менять диапозон чисел для игры. 
+void getUserSolution() // спрашиваем хочет ли пользователь менять диапозон чисел для игры. 
 {
     char userSolution{ 0 };
     std::cin >> userSolution;
 
-
     if (userSolution == 'Y')
     {
         helloFuncDifRange();
-        return 0;
     }
     else if (userSolution == 'N')
     {
         helloFunc();
-        return 0;
     }
-
 }
 
 uint16_t getUserRangeMin() // получем минимальное значение диапозона, если пользователь хочет его изменить см. функц (bool getUserSolution())
@@ -62,9 +58,7 @@ void getUserName()
     std::string userName{ 0 };
     std::getline(std::cin, userName);
     g_userName = userName;
-
 }
-
 
 uint16_t getNumFromUser()
 {
@@ -79,7 +73,6 @@ uint16_t getNumFromUser()
 
 void helloFunc() // Если, пользователь отказадся менять диапозон, передаем стандартный диапазон 0 и 99.
 {
-
     std::cout << "Hi, " << g_userName << "!\n" << "It's time to play the Game." << std::endl << "Guess the number between 0 and 99." << std::endl;
     compareNum(0, 99);
 }
@@ -119,7 +112,6 @@ void compareNum(uint16_t userRangeMin, uint16_t userRangeMax)
         }
 
     } while (true);
-
 }
 
 void putInFile(std::string userName, uint16_t g_itrFor_getNumFromUser)
