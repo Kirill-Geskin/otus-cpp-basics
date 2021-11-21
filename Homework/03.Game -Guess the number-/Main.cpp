@@ -1,9 +1,9 @@
 ﻿#include <iostream>
 #include <string>
-#include "DeclFunc.h"
+#include "func.h"
 
 int main(int argc, char* argv[])
-{ 
+{
     for (int i = 1; argv[i]; i++)
     {
         if (std::string(argv[i]) == "-table")
@@ -12,11 +12,11 @@ int main(int argc, char* argv[])
             return(0);
         }
     }
- 
-    getUserName();
+
+    std::string userName = getUserName();
     UserRangePrintTextQue();
-    getUserSolution();
-    putInFile(g_userName, g_itrFor_getNumFromUser);
+    getUserSolution(userName);
+    putInFile(userName);
 
     return 0;
 }

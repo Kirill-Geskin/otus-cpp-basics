@@ -2,7 +2,7 @@
 #include <random> // для std::random_device и std::mt19937
 #include <fstream>
 #include <string>
-#include "DeclFunc.h"
+#include "func.h"
 
 void UserRangePrintTextQue() //Спрашиваем хочет ли пользователь поменят диапозон ? 
 {
@@ -10,18 +10,18 @@ void UserRangePrintTextQue() //Спрашиваем хочет ли пользователь поменят диапозон
         "By default, it is set from 0 to 99 inclusive. If yes then enter Y, if no then enter N. ?";
 }
 
-void getUserSolution() // спрашиваем хочет ли пользователь менять диапозон чисел для игры. 
+void getUserSolution(std::string userName) // спрашиваем хочет ли пользователь менять диапозон чисел для игры. 
 {
     char userSolution{ 0 };
     std::cin >> userSolution;
 
     if (userSolution == 'Y')
     {
-        helloFuncDifRange();
+        helloFuncDifRange(userName);
     }
     else if (userSolution == 'N')
     {
-        helloFunc();
+        helloFunc(userName);
     }
 }
 
@@ -52,18 +52,19 @@ uint16_t getRandomNum(uint16_t userRangeMin, uint16_t userRangeMax) // принимаем
     return distrib(gen);
 }
 
-void getUserName()
+std::string getUserName()
 {
     std::cout << "Enter your name please. " << std::endl;
     std::string userName{ 0 };
     std::getline(std::cin, userName);
-    g_userName = userName;
+
+    return userName;
 }
 
-uint16_t getNumFromUser()
+int getNumFromUser()
 {
     std::cout << "Enter your number " << std::endl;
-    uint16_t numFromUser{ 0 };
+    int numFromUser{ 0 };
     std::cin >> numFromUser;
 
     ++g_itrFor_getNumFromUser;
@@ -71,19 +72,19 @@ uint16_t getNumFromUser()
     return numFromUser;
 }
 
-void helloFunc() // Если, пользователь отказадся менять диапозон, передаем стандартный диапазон 0 и 99.
+void helloFunc(std::string userName) // Если, пользователь отказадся менять диапозон, передаем стандартный диапазон 0 и 99.
 {
-    std::cout << "Hi, " << g_userName << "!\n" << "It's time to play the Game." << std::endl << "Guess the number between 0 and 99." << std::endl;
+    std::cout << "Hi, " << userName << "!\n" << "It's time to play the Game." << std::endl << "Guess the number between 0 and 99." << std::endl;
     compareNum(0, 99);
 }
 
-void helloFuncDifRange()
+void helloFuncDifRange(std::string userName)
 {
-    uint16_t userRangeMin{ 0 };
-    uint16_t userRangeMax{ 0 };
+    int userRangeMin{ 0 };
+    int userRangeMax{ 0 };
     userRangeMin = getUserRangeMin();
     userRangeMax = getUserRangeMax();
-    std::cout << "Hi, " << g_userName << "!\n" << "It's time to play the Game." << std::endl
+    std::cout << "Hi, " << userName << "!\n" << "It's time to play the Game." << std::endl
         << "Guess the number between " << userRangeMin << " and " << userRangeMax << '.' << std::endl;
     compareNum(userRangeMin, userRangeMax);
 }
@@ -114,7 +115,7 @@ void compareNum(uint16_t userRangeMin, uint16_t userRangeMax)
     } while (true);
 }
 
-void putInFile(std::string userName, uint16_t g_itrFor_getNumFromUser)
+void putInFile(std::string userName)
 {
     std::ofstream dataFile("UserHighScore.txt", std::ios::app);
 
@@ -147,3 +148,4 @@ void readFromFile()
         std::cout << strInput << std::endl;
     }
 }
+
