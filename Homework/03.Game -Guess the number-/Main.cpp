@@ -15,8 +15,28 @@ int main(int argc, char* argv[])
 
     std::string userName = getUserName();
     UserRangePrintTextQue();
-    getUserSolution(userName);
-    putInFile(userName);
+
+    int UserSolution{ 0 };
+    UserSolution = getUserSolution(userName);
+
+    int rangeMax{ 0 };
+    int rangeMin{ 0 };
+    int &pefRangeMax = rangeMax;
+    int &pefRangeMin = rangeMin;
+
+    if (UserSolution == 0)
+    {
+        helloFunc(userName, pefRangeMin, pefRangeMax);
+    }
+    else
+    {
+        helloFuncDifRange(userName, pefRangeMin, pefRangeMax);
+    }
+
+    int itrForGetNumFromUser{ 0 };
+    itrForGetNumFromUser = compareNum(pefRangeMin, pefRangeMax);
+   
+    putInFile(userName, itrForGetNumFromUser);
 
     return 0;
 }
