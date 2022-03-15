@@ -1,0 +1,3 @@
+C:/Users/vourd/Desktop/1/build/CMakeFiles/calc.dir
+C:/Users/vourd/Desktop/1/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/vourd/Desktop/1/build/CMakeFiles/ZERO_CHECK.dir

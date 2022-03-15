@@ -1,0 +1,10 @@
+^C:\USERS\VOURD\DESKTOP\1\BUILD\CMAKEFILES\C1FD3AD6DA469576D350266A3F886C02\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/vourd/Desktop/1 -BC:/Users/vourd/Desktop/1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/vourd/Desktop/1/build/calc.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
