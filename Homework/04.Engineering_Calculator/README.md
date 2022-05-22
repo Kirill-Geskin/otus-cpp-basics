@@ -32,12 +32,14 @@ the input stream. So to get the value of a number from a symbolic representation
 to read the numbers from left to right, constantly accumulate their result in the
 accumulator, multiplying the current result by 10 (left shift) and adding a new number.
 
+The scheme of transitions between the states of the lexer is shown below.
 Each new character read from the input stream can transfer the lexer to a new state or leave it in the
 previous one (transition like a loop). Empty - initial state, End - final. The labels on the
 arrows indicate the set of characters to navigate through.
 
 ![lexer-state-transition-state-machine](https://github.com/Kirill-Geskin/otus-cpp-basics/blob/main/Homework/IMG/lexer-state-transition-state-machine.png)
 
+Let's consider the following example. The input to the lexer is the string 12 + a. The initial state is Empty. Read the first character '1'. There is a transition from the Empty state to the ReadNumber state signed as 0-9 (which means any character from '0' to '9' or any digit). The state changes to ReadNumber, and the class member variable number_ is set to 1. The next character '2' remains in the same ReadNumber state, and the variable number_ is assigned the value 10 * 1 + 2 = 12. The next character '+' puts the automaton in the Empty state (jump on the arrow 0̂-9,which is read as any character except the range from '0' to '9'). In this case, the next_token() method returns the value Token::Number, signaling that a number has been read from the input stream. The read '+' character is remembered so that it can be used the next time the method is called.
 
 
 Assembly instructions
