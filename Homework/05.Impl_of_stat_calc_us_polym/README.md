@@ -30,3 +30,5 @@ pct95 = 10
 It is worth noting that the results may differ depending on the implementation. So, for example, some implementations might return the value `pct95` = 9.5. Or `std` values ​​that are different from what is indicated above, due to a different rounding of the result.
 
 ### Implementation clarifications
+
+The calculation of each type of statistics should be a separate class, which is an inheritor of the `IStatistics` class and implements a purely virtual function of the latter. The layout of the application can be viewed in the `statistics.cpp` file from the materials.
