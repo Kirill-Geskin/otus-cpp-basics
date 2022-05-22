@@ -100,6 +100,7 @@ cmake ..
 cmake --build .
 Work examples:
 
+```
 $echo "3 + 12 * 4" | ./calc
 	3
 +
@@ -120,3 +121,4 @@ $echo "a*a + 2*a*b + b*b" | ./calc
 		b
 	*
 		b
+```
